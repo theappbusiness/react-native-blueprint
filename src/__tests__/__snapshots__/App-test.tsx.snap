@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing navigation Renders snapshot as expected 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="CaseStudiesScreen"
+>
+  <Text
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 16,
+        "fontWeight": "600",
+        "marginHorizontal": "8%",
+        "marginTop": 30,
+      }
+    }
+  >
+    No case study found. Check back later!
+  </Text>
+</View>
+`;
