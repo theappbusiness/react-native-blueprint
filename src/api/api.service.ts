@@ -3,11 +3,8 @@ import Config from 'react-native-config';
 
 const api = axios.create({
   baseURL:
-    Config.API_ENDPOINT ||
-    'https://raw.githubusercontent.com/theappbusiness/engineering-challenge/main/endpoints/v1',
+    Config.API_ENDPOINT
 });
-
-console.log(Config.API_ENDPOINT);
 
 export function get<T>(
   url: string,
