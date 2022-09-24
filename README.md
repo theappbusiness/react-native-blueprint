@@ -13,7 +13,8 @@ Utilise this project as you see fit. But the recommended approach would be to cl
 ## Whats inside?
 
 - Linting and Formatting using **Eslint** and **Prettier**
-- **React Query**
+- [**React Query**](https://tanstack.com/query/v4) for optimised API calls
+- UI Test Automation using [**Maestro**](https://maestro.mobile.dev/)
 
 ## Roadmap
 
