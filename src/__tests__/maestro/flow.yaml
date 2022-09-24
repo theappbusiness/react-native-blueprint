@@ -1,0 +1,9 @@
+appId: com.kinandcarta.rn.blueprint
+---
+- launchApp
+- assertVisible: Kin \+ Carta
+- tapOn:    
+    point: 100,200
+- scroll
+- tapOn: Back
+- scroll
