@@ -40,10 +40,10 @@ This project has been split into several modules as follows:
 
 - `src/` - The top level app module
 - `api/` - Contains logic related to external API communications
-- `assets/` - Contain images, fonts and other static files
+- `assets/` - Contains images, fonts and other static files
 - `components/` - Shared components used across different screens live here
-- `screens/` - Modules that include a screen or set of screens that makeup a distinct user-flow
-- `styles/` - This module holds our application-level styles
+- `screens/` - Modules that include a screen or set of screens that makeup a distinct user-flow and their respective styles
+- `styles/` - This module holds the application-level styles
 <!-- To Add: tests, fastlane, navigation etc -->
 
 ## Project Maintenance
