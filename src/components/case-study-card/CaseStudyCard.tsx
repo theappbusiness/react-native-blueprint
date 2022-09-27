@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text, Image} from 'react-native';
-import {CaseStudy} from 'models/case-study';
+import {CaseStudy} from 'api/models/case-study';
 import {styles} from './styles';
 
 interface Props {

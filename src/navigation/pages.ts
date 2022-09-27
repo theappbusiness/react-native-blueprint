@@ -1,4 +1,4 @@
-import {CaseStudy} from '../models/case-study';
+import {CaseStudy} from '../api/models/case-study';
 
 export enum pages {
   CASE_STUDIES = 'case-studies',

@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import CaseStudyScreen from 'screens/case-studies/case-study-list/CaseStudyScreen';
-import CaseStudyDetails from 'screens/case-studies/case-study-details/CaseStudyDetails';
+import CaseStudyScreen from 'screens/case-study-list/CaseStudyScreen';
+import CaseStudyDetails from 'screens/case-study-details/CaseStudyDetails';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {stylesApp} from 'styles/app.styles';
 import {pages, ParamList} from './pages';

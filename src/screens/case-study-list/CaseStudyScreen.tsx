@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import {getCaseStudies} from 'api/case-studies';
-import {CaseStudy} from 'models/case-study';
+import {CaseStudy} from 'api/models/case-study';
 import CaseStudyCard from 'components/case-study-card/CaseStudyCard';
 import {useQuery} from 'react-query';
 import {QUERY} from 'api/query';

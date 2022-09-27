@@ -2,7 +2,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
 import {useEffect} from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
-import {Section} from 'models/section';
+import {Section} from 'api/models/section';
 import {pages, ParamList} from 'navigation/pages';
 import {styles} from './styles';
 

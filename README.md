@@ -28,22 +28,23 @@ Utilise this project as you see fit. But the recommended approach would be to cl
 
 This project uses Eslint for code quality and Prettier for code formatting. This is configured via [Husky](https://www.npmjs.com/package/husky) such at for every commit, husky pre-commit hook is triggered and it checks the code based on the rules defined in package.json
 
-<!-- ## Architecture
-This project has been split into several modules, where modules have been grouped into top-level modules by type and nested modules by appropriate domain:
+## Architecture
 
-* `:app` - The top level app module
-* `:features` - Modules that include a screen or set of screens that makeup a distinct user-flow. This also includes the UI, presentation and domain logic for the feature.
-* `:repositories` - Modules that include repository classes. E.g. network api, database, storage etc.
-* `:core` - Includes modules that are core to entire project.
-* `:libs` - Any arbitrary libraries.
-* `:test-utils` - Testing utility library modules, which include test helper classes.
+### Inspiration
 
+[How To Structure a React Native App For Scale](https://medium.com/the-andela-way/how-to-structure-a-react-native-app-for-scale-a29194cd33fc)
 
-Some important modules include:
+### Summary
 
-* `:core:common` - A shared common parent of all modules. i.e. commonly used interfaces (that are implemented by the application) will go here, so that those interfaces are shared across all modules.
-* `:feature:base` - A shared common parent of all feature modules. E.g. feature only utilities and custom widgets go here.
-* `:test-utils:unit-test` - A module that includes all test helper classes for unit tests, including Robolectric. All modules (excluding core libraries) have a <b>test only dependency</b> on this. -->
+This project has been split into several modules as follows:
+
+- `src/` - The top level app module
+- `api/` - Contains logic related to external API communications
+- `assets/` - Contain images, fonts and other static files
+- `components/` - Shared components used across different screens live here
+- `screens/` - Modules that include a screen or set of screens that makeup a distinct user-flow
+- `styles/` - This module holds our application-level styles
+<!-- To Add: tests, fastlane, navigation etc -->
 
 ## Project Maintenance
 
