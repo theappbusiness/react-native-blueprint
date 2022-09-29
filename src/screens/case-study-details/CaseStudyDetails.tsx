@@ -17,7 +17,7 @@ const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
   }, [navigation, data]);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView testID="CaseStudyDetails" style={styles.container}>
       <View style={styles.ctnTitle}>
         <Text style={styles.txtTitle}>{data.title}</Text>
         <Text style={styles.txtSubtitle}>

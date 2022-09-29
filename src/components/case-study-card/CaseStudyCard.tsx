@@ -10,7 +10,10 @@ interface Props {
 
 const CaseStudyCard = ({item, onPress}: Props) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.card}>
+    <TouchableOpacity
+      testID="CaseStudyCard"
+      onPress={onPress}
+      style={styles.card}>
       <Image
         source={{uri: item.hero_image}}
         style={styles.heroImage}

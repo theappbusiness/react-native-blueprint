@@ -15,6 +15,8 @@ Utilise this project as you see fit. But the recommended approach would be to cl
 - Linting and Formatting using **Eslint** and **Prettier**
 - [**React Query**](https://tanstack.com/query/v4) for optimised API calls
 - UI Test Automation using [**Maestro**](https://maestro.mobile.dev/)
+<!-- - E2e Testing using Detox
+https://reactnativetesting.io/e2e/setup/ -->
 
 ## Roadmap
 
