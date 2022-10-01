@@ -18,13 +18,13 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 13 Pro"
+        "type": "iPhone 14 Pro"
       }
     },
     "emulator": {
       "type": "android.emulator",
       "device": {
-        "avdName": "Pixel_2_API_31"
+        "avdName": "Pixel_3a_API_33"
       }
     }
   },

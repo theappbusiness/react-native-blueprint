@@ -3,7 +3,8 @@ appId: com.kinandcarta.rn.blueprint
 - launchApp
 - assertVisible: Kin \+ Carta
 - tapOn:    
-    point: 100,200
+    id: "CaseStudyCard"  
+    index: 1
 - scroll
 - tapOn: Back
 - scroll
