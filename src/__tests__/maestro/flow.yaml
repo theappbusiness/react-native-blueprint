@@ -6,5 +6,5 @@ appId: com.kinandcarta.rn.blueprint
     id: "CaseStudyCard"  
     index: 1
 - scroll
-- tapOn: Back
+- back
 - scroll
