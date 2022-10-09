@@ -29,9 +29,6 @@ const CaseStudyScreen: FC<Props> = ({navigation}) => {
     onSuccess: (data: CaseStudy[]) => {
       dispatch(setCaseStudies(data));
     },
-    onError: (err: any) => {
-      console.log(err);
-    },
   });
 
   const openDetails = (item: CaseStudy) => {
