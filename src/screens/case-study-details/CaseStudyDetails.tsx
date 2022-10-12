@@ -7,15 +7,14 @@ import {pages, ParamList} from 'navigation/pages';
 import {styles} from './styles';
 import {CaseStudy} from 'api/models/case-study';
 import RelatedCard from 'components/related-card/RelatedCard';
-import {useAppSelector} from 'hooks';
-import {RootState} from 'redux/store';
+import {useStore} from 'store';
 
 interface Props
   extends NativeStackScreenProps<ParamList, pages.CASE_STUDY_DETAILS> {}
 
 const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
   const scrollRef = useRef<ScrollView>(null);
-  const {caseStudies} = useAppSelector((state: RootState) => state.caseStudies);
+  const {caseStudies} = useStore(state => state);
   const {data: caseStudy} = route.params;
 
   useEffect(() => {

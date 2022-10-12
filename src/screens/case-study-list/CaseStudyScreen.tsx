@@ -15,19 +15,16 @@ import {styles} from './styles';
 import {stylesApp} from 'styles/app.styles';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {pages, ParamList} from 'navigation/pages';
-import {setCaseStudies} from 'redux/reducers/case-studies';
-import {useAppDispatch, useAppSelector} from 'hooks';
-import {RootState} from 'redux/store';
+import {useStore} from 'store';
 
 interface Props extends NativeStackScreenProps<ParamList, pages.CASE_STUDIES> {}
 
 const CaseStudyScreen: FC<Props> = ({navigation}) => {
-  const dispatch = useAppDispatch();
-  const {caseStudies} = useAppSelector((state: RootState) => state.caseStudies);
+  const {caseStudies, setCaseStudies} = useStore(state => state);
 
   const {refetch, isLoading} = useQuery([QUERY.CASE_STUDIES], getCaseStudies, {
     onSuccess: (data: CaseStudy[]) => {
-      dispatch(setCaseStudies(data));
+      setCaseStudies(data);
     },
   });
 
