@@ -52,13 +52,4 @@ describe('Basic unit tests', () => {
     fireEvent.press(getByTestId('CaseStudyCard'));
     expect(mockFn).toBeCalled();
   });
-
-  // it('renders the correct screen', async () => {
-  //   const {getByTestId} = render(
-  //     <NavigationContainer>
-  //       <Navigator />
-  //     </NavigationContainer>,
-  //   );
-  //   await waitFor(() => getByTestId('CaseStudiesScreen'));
-  // });
 });

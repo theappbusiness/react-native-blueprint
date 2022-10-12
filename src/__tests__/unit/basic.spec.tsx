@@ -1,9 +1,14 @@
-import {cleanup} from '@testing-library/react-native';
+import * as React from 'react';
+import {cleanup, render, screen, waitFor} from '@testing-library/react-native';
 import {CaseStudy} from 'api/models/case-study';
 import axios from 'axios';
 import {getCaseStudies} from 'api/case-studies';
 import configureStore from 'redux-mock-store';
 import {setCaseStudies} from 'redux/reducers/case-studies';
+import {Provider} from 'react-redux';
+import {NavigationContainer} from '@react-navigation/native';
+import Navigation from 'navigation/RootNavigation';
+import {QueryClientProvider, QueryClient, useQuery} from 'react-query';
 
 // import {NavigationContainer} from '@react-navigation/native';
 // import {render, waitFor} from '@testing-library/react-native';
@@ -13,7 +18,6 @@ jest.mock('axios');
 
 const middlewares: any = [];
 const mockStore = configureStore(middlewares);
-// const addTodo = () => ({type: 'ADD_TODO'});
 
 afterEach(cleanup);
 
@@ -64,4 +68,37 @@ describe('Basic unit tests', () => {
     expect(actions).toMatchSnapshot();
     expect(actions).toEqual([expectedPayload]);
   });
+
+  // test('page contains the header and 10 items', async () => {
+  //   // Initialize mockstore with empty state
+  //   const initialState = {
+  //     caseStudies: [caseStudy] as CaseStudy[],
+  //   };
+  //   const store = mockStore(initialState);
+  //   store.dispatch(setCaseStudies([caseStudy]))
+
+  //   const queryClient = new QueryClient();
+
+  //   const component = (
+  //     <QueryClientProvider client={queryClient}>
+  //       <Provider store={store}>
+  //         <NavigationContainer>
+  //           <Navigation />
+  //         </NavigationContainer>
+  //       </Provider>
+  //     </QueryClientProvider>
+  //   );
+
+  //   store.getActions
+
+  //   render(component);
+
+  //   const header = await screen.findByTestId('CaseStudiesScreen');
+  //   const result = await waitFor(() =>
+  //     screen.queryAllByTestId('CaseStudiesCard'),
+  //   );
+
+  //   expect(header).toBeTruthy();
+  //   expect(result.length).toBe(0);
+  // });
 });
