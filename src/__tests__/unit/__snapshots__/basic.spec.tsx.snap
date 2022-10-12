@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic unit tests should dispatch action 1`] = `
+[
+  {
+    "payload": [
+      {
+        "id": "1",
+        "sections": [],
+        "title": "Test Case Study",
+      },
+    ],
+    "type": "case-studies/setCaseStudies",
+  },
+]
+`;

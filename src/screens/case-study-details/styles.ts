@@ -30,6 +30,9 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  sectionRelated: {
+    marginVertical: 32,
+  },
   txtTitle: {
     fontSize: 20,
     fontWeight: 'bold',

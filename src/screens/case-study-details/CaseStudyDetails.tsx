@@ -1,31 +1,53 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {FC} from 'react';
+import React, {FC, useMemo, useRef} from 'react';
 import {useEffect} from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 import {Section} from 'api/models/section';
 import {pages, ParamList} from 'navigation/pages';
 import {styles} from './styles';
+import {CaseStudy} from 'api/models/case-study';
+import RelatedCard from 'components/related-card/RelatedCard';
+import {useStore} from 'store';
 
 interface Props
   extends NativeStackScreenProps<ParamList, pages.CASE_STUDY_DETAILS> {}
 
 const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
-  const {data} = route.params;
+  const scrollRef = useRef<ScrollView>(null);
+  const {caseStudies} = useStore(state => state);
+  const {data: caseStudy} = route.params;
 
   useEffect(() => {
-    navigation.setOptions({headerTitle: `K+C and ${data.vertical}`});
-  }, [navigation, data]);
+    navigation.setOptions({headerTitle: `K+C and ${caseStudy.vertical}`});
+  }, [navigation, caseStudy]);
+
+  const relatedArtcles = useMemo(
+    () =>
+      caseStudies.filter(
+        (c: CaseStudy) =>
+          c.id !== caseStudy.id && c.vertical === caseStudy.vertical,
+      ),
+    [caseStudies, caseStudy],
+  );
+
+  const openDetails = (item: CaseStudy) => {
+    navigation.navigate(pages.CASE_STUDY_DETAILS, {data: item});
+    scrollRef.current?.scrollTo({y: 0, animated: true});
+  };
 
   return (
-    <ScrollView testID="CaseStudyDetails" style={styles.container}>
+    <ScrollView
+      testID="CaseStudyDetails"
+      style={styles.container}
+      ref={scrollRef}>
       <View style={styles.ctnTitle}>
-        <Text style={styles.txtTitle}>{data.title}</Text>
+        <Text style={styles.txtTitle}>{caseStudy.title}</Text>
         <Text style={styles.txtSubtitle}>
-          In partnership with {data.client}
+          In partnership with {caseStudy.client}
         </Text>
       </View>
-      <Image style={styles.image} source={{uri: data.hero_image}} />
-      {data.sections.map((item: Section, index: number) => {
+      <Image style={styles.image} source={{uri: caseStudy.hero_image}} />
+      {caseStudy.sections.map((item: Section, index: number) => {
         return (
           <View key={index + item?.title} style={styles.sectionCard}>
             {item?.title && (
@@ -46,6 +68,20 @@ const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
           </View>
         );
       })}
+      {relatedArtcles.length > 0 && (
+        <View style={styles.sectionRelated}>
+          <Text style={styles.txtTitle}>Related Articles</Text>
+          {relatedArtcles.map((item: CaseStudy) => (
+            <RelatedCard
+              key={item?.title}
+              item={item}
+              onPress={() => {
+                openDetails(item);
+              }}
+            />
+          ))}
+        </View>
+      )}
     </ScrollView>
   );
 };

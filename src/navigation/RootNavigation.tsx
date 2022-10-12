@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator<ParamList>();
 
 const Navigation: React.FC = ({}) => {
   return (
-    <SafeAreaProvider>
+    // <SafeAreaProvider>
       <Stack.Navigator>
         <Stack.Screen
           name={pages.CASE_STUDIES}
@@ -29,7 +29,7 @@ const Navigation: React.FC = ({}) => {
           component={CaseStudyDetails}
         />
       </Stack.Navigator>
-    </SafeAreaProvider>
+    // </SafeAreaProvider>
   );
 };
 

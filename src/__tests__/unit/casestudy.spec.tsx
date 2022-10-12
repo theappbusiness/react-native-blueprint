@@ -1,58 +1,55 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {render, waitFor} from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
-import {cleanup} from '@testing-library/react-native';
-
-import Navigator from 'navigation/RootNavigation';
-import CaseStudyScreen from 'screens/case-study-list/CaseStudyScreen';
+import {render, cleanup, fireEvent} from '@testing-library/react-native';
+import {CaseStudy} from 'api/models/case-study';
 import CaseStudyCard from 'components/case-study-card/CaseStudyCard';
 import {Text} from 'react-native';
 
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
-jest.mock('axios');
+// import {NavigationContainer} from '@react-navigation/native';
+// import {render, waitFor} from '@testing-library/react-native';
+// import Navigator from 'navigation/RootNavigation';
 
 afterEach(cleanup);
 
+let caseStudy: CaseStudy;
+
+beforeEach(async () => {
+  caseStudy = {
+    id: '1',
+    title: 'Test Case Study',
+    sections: [],
+  };
+});
+
 describe('Basic unit tests', () => {
-  it('renders the correct screen', async () => {
-    // const {getByTestId} = render(
-    //   <NavigationContainer>
-    //     <Navigator />
-    //   </NavigationContainer>,
-    // );
-    // await waitFor(() => getByTestId('CaseStudiesScreen'));
+  it('Renders CaseStudyCard snapshot as expected', () => {
+    const tree = renderer.create(<CaseStudyCard item={caseStudy} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
-  // it('renders the correct screen', async () => {
-  //   const {getByTestId} = render(
-  //     <NavigationContainer>
-  //       <Navigator />
-  //     </NavigationContainer>,
-  //   );
-  //   await waitFor(() => getByTestId('CaseStudiesScreen'));
-  // });
 
-  // it('Renders snapshot as expected', () => {
-  //   const tree = renderer.create(<CaseStudyScreen />).toJSON();
-  //   expect(tree).toMatchSnapshot();
-  // });
+  // probably not required after snapshot testing passed. Still keeping it for reference
+  it("CaseStudyCard's title is bold", () => {
+    const rendererInstance = renderer.create(
+      <CaseStudyCard item={caseStudy} />,
+    );
 
-  // it('Case study title is bold', () => {
-  //   const caseStudy: any = {
-  //     id: '1',
-  //     title: 'title',
-  //   };
+    const root = rendererInstance.root;
+    const title = root.findAllByType(Text)[0];
 
-  //   const rendererInstance = renderer.create(
-  //     <CaseStudyCard item={caseStudy} />,
-  //   );
+    const boldStyle = {
+      fontWeight: 'bold',
+    };
+    expect(title.props.style).toMatchObject(boldStyle);
+  });
 
-  //   const root = rendererInstance.root;
-  //   const title = root.findByType(Text);
+  it('given a CaseStudyCard, user can click on it to invoke onPress', () => {
+    const mockFn = jest.fn();
 
-  //   const boldStyle = {
-  //     fontWeight: 'bold',
-  //   };
-  //   expect(title.props.style).toMatchObject(boldStyle);
-  // });
+    const {getByTestId} = render(
+      <CaseStudyCard item={caseStudy} onPress={mockFn} />,
+    );
+
+    fireEvent.press(getByTestId('CaseStudyCard'));
+    expect(mockFn).toBeCalled();
+  });
 });
