@@ -46,7 +46,7 @@ This project has been split into several modules as follows:
 - `components/` - Shared components used across different screens live here
 - `screens/` - Modules that include a screen or set of screens that makeup a distinct user-flow and their respective styles
 - `styles/` - This module holds the application-level styles
-- `redux/` - This module handles the application state management using redux
+- `store/` - This module handles the application state management using [Zustand](https://github.com/pmndrs/zustand)
 - `src/__tests__/` - Includes UI, Unit, and End-to-End tests
 <!-- To Add: fastlane, navigation etc -->
 
