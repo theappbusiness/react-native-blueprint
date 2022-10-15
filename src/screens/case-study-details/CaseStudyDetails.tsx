@@ -72,7 +72,6 @@ const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
   return (
     <View testID="CaseStudyDetails" style={styles.container}>
       <FlatList
-        testID="CaseStudyList"
         ref={scrollRef}
         data={caseStudy.sections}
         renderItem={renderItem}

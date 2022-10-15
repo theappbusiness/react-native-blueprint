@@ -14,9 +14,15 @@ const CaseStudySection = ({item}: Props) => {
       {item?.body_elements.map((element: string | BodyElement, i: number) => (
         <View key={i}>
           {typeof element === 'string' ? (
-            <Text style={styles.sectionBody}>{element}</Text>
+            <Text testID="TextBodyElement" style={styles.sectionBody}>
+              {element}
+            </Text>
           ) : (
-            <Image style={styles.image} source={{uri: element?.image_url}} />
+            <Image
+              testID="ImageBodyElement"
+              style={styles.image}
+              source={{uri: element?.image_url}}
+            />
           )}
         </View>
       ))}
