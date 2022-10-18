@@ -8,7 +8,8 @@ describe('E2E Tests', () => {
   });
 
   it('should show the correct launching screen', async () => {
-    await expect(element(by.id('CaseStudiesScreen'))).toBeVisible();
+    await expect(element(by.id('CaseStudiesScreen'))).toExist();
+    await expect(element(by.text('KIN + CARTA'))).toBeVisible();
   });
 
   it('should go the case study details upon tapping', async () => {

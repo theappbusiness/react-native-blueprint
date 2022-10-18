@@ -43,7 +43,9 @@ const CaseStudyDetails: FC<Props> = ({route, navigation}) => {
   const renderHeader = () => (
     <View>
       <View style={styles.ctnTitle}>
-        <Text style={styles.txtTitle}>{caseStudy.title}</Text>
+        <Text testID="CaseStudyDetailsTitle" style={styles.txtTitle}>
+          {caseStudy.title}
+        </Text>
         <Text style={styles.txtSubtitle}>
           In partnership with {caseStudy.client}
         </Text>

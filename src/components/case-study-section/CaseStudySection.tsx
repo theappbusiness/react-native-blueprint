@@ -9,7 +9,7 @@ interface Props {
 
 const CaseStudySection = ({item}: Props) => {
   return (
-    <View style={styles.sectionCard}>
+    <View testID="CaseStudySection" style={styles.sectionCard}>
       {item?.title && <Text style={styles.sectionTitle}>{item.title}</Text>}
       {item?.body_elements.map((element: string | BodyElement, i: number) => (
         <View key={i}>

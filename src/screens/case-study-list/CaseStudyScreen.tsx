@@ -14,17 +14,18 @@ import {stylesApp} from 'styles/app.styles';
 interface Props extends NativeStackScreenProps<ParamList, pages.CASE_STUDIES> {}
 
 const CaseStudyScreen: FC<Props> = ({navigation}) => {
-  const {caseStudies, setCaseStudies} = useStore(state => state);
+  const {setCaseStudies} = useStore(state => state);
 
-  const {refetch, isLoading, isRefetching} = useQuery(
-    [QUERY.CASE_STUDIES],
-    getCaseStudies,
-    {
-      onSuccess: (data: CaseStudy[]) => {
-        setCaseStudies(data);
-      },
+  const {
+    data: caseStudies,
+    isLoading,
+    refetch,
+    isRefetching,
+  } = useQuery([QUERY.CASE_STUDIES], getCaseStudies, {
+    onSuccess: (data: CaseStudy[]) => {
+      setCaseStudies(data);
     },
-  );
+  });
 
   const openDetails = (item: CaseStudy) => {
     navigation.navigate(pages.CASE_STUDY_DETAILS, {data: item});
@@ -36,7 +37,7 @@ const CaseStudyScreen: FC<Props> = ({navigation}) => {
         <ActivityIndicator style={stylesApp.mt16} />
       ) : (
         <CaseStudyList
-          items={caseStudies}
+          items={caseStudies as CaseStudy[]}
           isRefetching={isRefetching}
           onItemPress={openDetails}
           onRefresh={refetch}
