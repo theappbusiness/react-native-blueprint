@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, cleanup, fireEvent} from '@testing-library/react-native';
 import {CaseStudy} from 'api/models/case-study';
 import CaseStudyList from 'components/case-study-list/CaseStudyList';
+import {NO_CONTENT_ERR} from 'utils/constants';
 
 afterEach(cleanup);
 
@@ -26,7 +27,7 @@ describe('CaseStudyList unit tests', () => {
     const {getByText} = render(
       <CaseStudyList onItemPress={mockFn} items={[]} />,
     );
-    expect(getByText('No case study found. Check back later!')).toBeTruthy();
+    expect(getByText(NO_CONTENT_ERR)).toBeTruthy();
   });
 
   it('Renders all the items provided to the CaseStudyList', () => {

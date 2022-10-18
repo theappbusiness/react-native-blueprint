@@ -3,6 +3,7 @@ import {Text, FlatList, RefreshControl} from 'react-native';
 import {CaseStudy} from 'api/models/case-study';
 import {styles} from './styles';
 import CaseStudyCard from 'components/case-study-card/CaseStudyCard';
+import {NO_CONTENT_ERR} from 'utils/constants';
 
 interface Props {
   items: CaseStudy[];
@@ -22,9 +23,7 @@ const CaseStudyList = ({
   );
 
   const emptyItem = () => (
-    <Text style={styles.textNoContent}>
-      No case study found. Check back later!
-    </Text>
+    <Text style={styles.textNoContent}>{NO_CONTENT_ERR}</Text>
   );
 
   return (
