@@ -13,6 +13,7 @@ beforeEach(async () => {
   caseStudy = {
     id: '1',
     title: 'Test Case Study',
+    teaser: 'teaser',
     sections: [],
   };
 
@@ -22,14 +23,16 @@ beforeEach(async () => {
 describe('CaseStudyCard unit tests', () => {
   it('Renders CaseStudyCard snapshot as expected', () => {
     const component = renderer
-      .create(<CaseStudyCard item={caseStudy} />)
+      .create(
+        <CaseStudyCard title={caseStudy.title} teaser={caseStudy.teaser} />,
+      )
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('given a CaseStudyCard, user can click on it to invoke onPress', () => {
     const {getByTestId} = render(
-      <CaseStudyCard item={caseStudy} onPress={mockFn} />,
+      <CaseStudyCard title={caseStudy.title} onPress={mockFn} />,
     );
     fireEvent.press(getByTestId('CaseStudyCard'));
     expect(mockFn).toBeCalledTimes(1);

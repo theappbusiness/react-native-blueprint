@@ -19,7 +19,12 @@ const CaseStudyList = ({
   onRefresh,
 }: Props) => {
   const renderItem = ({item}: {item: CaseStudy}) => (
-    <CaseStudyCard item={item} onPress={() => onItemPress?.(item)} />
+    <CaseStudyCard
+      title={item.title}
+      teaser={item.teaser}
+      image={item.hero_image}
+      onPress={() => onItemPress?.(item)}
+    />
   );
 
   const emptyItem = () => (
