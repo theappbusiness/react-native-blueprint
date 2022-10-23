@@ -22,12 +22,16 @@ beforeEach(async () => {
 
 describe('CaseStudyCard unit tests', () => {
   it('Renders CaseStudyCard snapshot as expected', () => {
-    const component = renderer
-      .create(
-        <CaseStudyCard title={caseStudy.title} teaser={caseStudy.teaser} />,
-      )
-      .toJSON();
-    expect(component).toMatchSnapshot();
+    const component = (
+      <CaseStudyCard title={caseStudy.title} teaser={caseStudy.teaser} />
+    );
+
+    const componentRendered = renderer.create(component).toJSON();
+    expect(componentRendered).toMatchSnapshot();
+
+    const {getByText} = render(component);
+    expect(getByText('Test Case Study')).toBeDefined();
+    expect(getByText('teaser')).toBeDefined();
   });
 
   it('given a CaseStudyCard, user can click on it to invoke onPress', () => {

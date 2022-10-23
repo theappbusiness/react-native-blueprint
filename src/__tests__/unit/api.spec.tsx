@@ -19,7 +19,7 @@ beforeEach(async () => {
 
 describe('Basic unit tests', () => {
   // mock test - mocking axios
-  it('Shoud fetch the case studies', () => {
+  it('Shoud fetch the case studies', async () => {
     const caseStudies = [caseStudy];
 
     const mockRes = {
@@ -31,6 +31,7 @@ describe('Basic unit tests', () => {
     // axios.get.mockResolvedValue(mockRes);
     axios.get.mockImplementation(() => Promise.resolve(mockRes));
 
-    return getCaseStudies().then(res => expect(res).toEqual(caseStudies));
+    const res = await getCaseStudies();
+    return expect(res).toEqual(caseStudies);
   });
 });
