@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render, cleanup} from '@testing-library/react-native';
 import CaseStudyScreen from 'screens/case-study-list/CaseStudyScreen';
-import {CaseStudy} from 'api/models/case-study';
+import {CaseStudy} from 'components/case-study-list/case-study';
 import CaseStudyDetails from 'screens/case-study-details/CaseStudyDetails';
 
 afterEach(cleanup);

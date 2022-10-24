@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render, cleanup, fireEvent} from '@testing-library/react-native';
-import {CaseStudy} from 'api/models/case-study';
-import CaseStudyList from 'components/case-study-list/CaseStudyList';
+import {CaseStudy} from './case-study';
+import CaseStudyList from './CaseStudyList';
 import {NO_CONTENT_ERR} from 'utils/constants';
 
 afterEach(cleanup);

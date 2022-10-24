@@ -1,4 +1,4 @@
-import {Section} from './section';
+import {Section} from 'components/case-study-section/section';
 
 export interface CaseStudy {
   id: string;

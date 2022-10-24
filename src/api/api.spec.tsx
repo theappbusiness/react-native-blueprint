@@ -1,5 +1,5 @@
 import {cleanup} from '@testing-library/react-native';
-import {CaseStudy} from 'api/models/case-study';
+import {CaseStudy} from 'components/case-study-list/case-study';
 import axios from 'axios';
 import {getCaseStudies} from 'api/case-studies';
 
@@ -29,6 +29,8 @@ describe('Basic unit tests', () => {
     };
 
     // axios.get.mockResolvedValue(mockRes);
+
+    //@ts-ignore
     axios.get.mockImplementation(() => Promise.resolve(mockRes));
 
     const res = await getCaseStudies();

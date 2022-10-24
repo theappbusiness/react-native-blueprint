@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, Image, View} from 'react-native';
 import {styles} from './styles';
-import {BodyElement, Section} from 'api/models/section';
+import {BodyElement, Section} from './section';
 
 interface Props {
   item: Section;

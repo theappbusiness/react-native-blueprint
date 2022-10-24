@@ -1,8 +1,8 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {render, cleanup, fireEvent} from '@testing-library/react-native';
-import {CaseStudy} from 'api/models/case-study';
-import CaseStudyCard from 'components/case-study-card/CaseStudyCard';
+import {CaseStudy} from 'components/case-study-list/case-study';
+import CaseStudyCard from './CaseStudyCard';
 
 afterEach(cleanup);
 

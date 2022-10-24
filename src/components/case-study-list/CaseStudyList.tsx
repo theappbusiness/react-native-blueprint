@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, FlatList, RefreshControl} from 'react-native';
-import {CaseStudy} from 'api/models/case-study';
-import {styles} from './styles';
+import {Text, FlatList, RefreshControl, StyleSheet} from 'react-native';
+import {CaseStudy} from './case-study';
 import CaseStudyCard from 'components/case-study-card/CaseStudyCard';
 import {NO_CONTENT_ERR} from 'utils/constants';
+import {colors} from 'styles/colors';
 
 interface Props {
   items: CaseStudy[];
@@ -45,5 +45,15 @@ const CaseStudyList = ({
     />
   );
 };
+
+const styles = StyleSheet.create({
+  textNoContent: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.black,
+    alignSelf: 'center',
+    marginTop: 32,
+  },
+});
 
 export default CaseStudyList;

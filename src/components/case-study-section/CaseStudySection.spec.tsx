@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render, cleanup} from '@testing-library/react-native';
-import {Section} from 'api/models/section';
-import CaseStudySection from 'components/case-study-section/CaseStudySection';
+import {Section} from './section';
+import CaseStudySection from './CaseStudySection';
 
 afterEach(cleanup);
 
