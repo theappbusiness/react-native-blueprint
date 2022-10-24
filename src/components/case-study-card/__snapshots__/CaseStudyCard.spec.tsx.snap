@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CaseStudyCard unit tests Renders CaseStudyCard snapshot as expected 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignSelf": "center",
+      "backgroundColor": "#FFFFFF",
+      "elevation": 3,
+      "marginBottom": 16,
+      "opacity": 1,
+      "paddingBottom": 16,
+      "shadowColor": "#000000",
+      "shadowOffset": {
+        "height": 3,
+        "width": 0,
+      },
+      "shadowOpacity": 0.2,
+      "shadowRadius": 2,
+      "width": "100%",
+    }
+  }
+  testID="CaseStudyCard"
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginHorizontal": 16,
+        "marginTop": 16,
+      }
+    }
+  >
+    Test Case Study
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#737373",
+        "marginHorizontal": 16,
+        "marginTop": 4,
+      }
+    }
+  >
+    teaser
+  </Text>
+</View>
+`;
