@@ -14,14 +14,16 @@ Utilise this project as you see fit. But the recommended approach would be to cl
 
 - Linting and Formatting using **Eslint** and **Prettier**
 - [**React Query**](https://tanstack.com/query/v4) for optimised API calls
+- State Management via [**Zustand**](https://github.com/pmndrs/zustand)
+- Unit Tests using [**Jest**](https://jestjs.io/docs/tutorial-react-native)
+- Integration Tests using [**React Native Testing Library**](https://testing-library.com/docs/react-native-testing-library/intro/)
+- E2E Tests using [**Detox**](https://wix.github.io/Detox/)
 - UI Test Automation using [**Maestro**](https://maestro.mobile.dev/)
-<!-- - E2e Testing using Detox
-https://reactnativetesting.io/e2e/setup/ -->
 
 ## Roadmap
 
 - Testing using Jest
-- State management using Redux
+- State management using Zustand
 - Firebase Crashlytics configuration
 - CI/CD pipeline (preferably with Fastlane)
 - App Center distribution
@@ -41,14 +43,14 @@ This project uses Eslint for code quality and Prettier for code formatting. This
 This project has been split into several modules as follows:
 
 - `src/` - The top level app module
+- `__tests__/` - Includes UI, Integration and End-to-End tests. Unit tests can be found in each component's folder
 - `api/` - Contains logic related to external API communications
 - `assets/` - Contains images, fonts and other static files
-- `components/` - Shared components used across different screens live here
+- `components/` - Shared components used across different screens live here along with their unit tests
 - `screens/` - Modules that include a screen or set of screens that makeup a distinct user-flow and their respective styles
-- `styles/` - This module holds the application-level styles
 - `store/` - This module handles the application state management using [Zustand](https://github.com/pmndrs/zustand)
-- `src/__tests__/` - Includes UI, Unit, and End-to-End tests
-<!-- To Add: fastlane, navigation etc -->
+- `styles/` - This module holds the application-level styles
+- `utils/` - This module holds the utility functions and constants
 
 ## Project Maintenance
 
